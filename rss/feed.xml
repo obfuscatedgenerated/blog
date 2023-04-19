@@ -14,7 +14,7 @@ layout: none
 				<description>
 				<![CDATA[
 				{% if post.background %}
-				<img src="{{ site.url }}{{ post.background }}" alt="{{ post.title | xml_escape }} - header image" />
+				<p align="center><img width=500 src="{{ site.url }}{{ post.background }}" alt="{{ post.title | xml_escape }} - header image" /></p>
 				{% endif %}
 				{{ post.content | xml_escape }}
 				]]>

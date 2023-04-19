@@ -11,6 +11,13 @@ layout: none
 		{% for post in site.posts limit:10 %}
 			<item>
 				<title>{{ post.title | xml_escape }}</title>
+                {% if post.background %}
+                <image>
+                    <url>{{ site.url }}{{ post.background }}</url>
+                    <title>{{ post.title | xml_escape }} - header image</title>
+                    <link>{{ site.url }}{{ post.url }}</link>
+                </image>
+                {% endif %}
 				<description>{{ post.content | xml_escape }}</description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
 				<link>{{ site.url }}{{ post.url }}</link>

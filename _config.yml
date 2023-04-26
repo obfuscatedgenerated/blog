@@ -1,10 +1,15 @@
 title: "> blogfuscated_"
+author: obfuscatedgenerated
 url: https://blog.ollieg.codes
+
 remote_theme: StartBootstrap/startbootstrap-clean-blog-jekyll
+
 markdown: kramdown
 paginate: 5
 paginate_path: "/posts/page:num/"
+
 plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-remote-theme
+  - jekyll-sitemap

@@ -3,7 +3,7 @@ layout: page
 ---
 
 <div class="post">
-    <h1>All articles with tag: {{ page.tag }}</h1>
+    <h1>All articles tagged {{ page.tag }}:</h1>
     <hr>
     {% for post in site.tags[page.tag] %}
     <article class="post-preview">

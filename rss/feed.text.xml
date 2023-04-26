@@ -4,19 +4,16 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>{{ site.title | xml_escape }}</title>
+		<title>{{ site.title | xml_escape }} - Plaintext</title>
 		<description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>		
 		<link>{{ site.url }}</link>
-		<atom:link href="{{ site.url }}/rss/feed.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="{{ site.url }}/rss/feed.text.xml" rel="self" type="application/rss+xml" />
 		{% for post in site.posts limit:10 %}
 			<item>
 				<title>{{ post.title | xml_escape }}</title>
 				<description>
-				<![CDATA[
-				{% if post.background %}<p align="center"><img width=500 src="{{ site.url }}{{ post.background }}" alt="{{ post.title | xml_escape }} - header image" /></p>{% endif %}
-				{% if post.tags %}<p align="center">Tags:{% for tag in post.tags %} <a href="{{ site.url }}/tags/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}</p>{% endif %}
-				{{ post.content | xml_escape }}
-				]]>
+				{% if post.tags %}Tags: {% for tag in post.tags %}{{ tag }}{% endfor %}{% endif %}
+                {{ post.content | strip_html }}
 				</description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
 				<link>{{ site.url }}{{ post.url }}</link>

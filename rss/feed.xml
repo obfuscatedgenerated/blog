@@ -16,7 +16,7 @@ layout: none
 {% if post.background %}<p align="center"><img width=500 src="{{ site.url }}{{ post.background }}" alt="{{ post.title | xml_escape }} - header image" /></p>{% endif %}
 {% if post.tags %}<p align="center">Tags:{% for tag in post.tags %} <a href="{{ site.url }}/tag/{{ tag | slugify }}">{{ tag }}</a>{% endfor %}</p>{% endif %}
 
-{{ post.content | xml_escape }}
+{{ post.content }}
 ]]>
 				</description>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>

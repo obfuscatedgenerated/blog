@@ -25,7 +25,7 @@ The solution is to disable VBS on the host machine, which can be done using the 
 
 <a name="command"></a>
 
-```powershell
+```shell
 bcdedit /set hypervisorlaunchtype off
 ```
 
@@ -38,7 +38,7 @@ To re-enable VBS, use the following command and reboot:
 
 <a name="revert-command"></a>
 
-```powershell
+```shell
 bcdedit /set hypervisorlaunchtype auto
 ```
 

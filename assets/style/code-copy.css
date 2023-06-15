@@ -1,0 +1,22 @@
+pre.highlight:hover .copy-btn {
+    opacity: 1;
+}
+
+pre.highlight {
+    position: relative;
+    overflow-y: hidden;
+}
+
+pre.highlight .copy-btn {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    position: absolute;
+    top: 1px;
+    right: 1px;
+
+    background: transparent;
+    color: white;
+    border-radius: 15%;
+    border: solid white 1px;
+}

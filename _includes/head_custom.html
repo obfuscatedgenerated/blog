@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="/assets/style/code-copy.css">
 <meta property="og:type" content="article">
 {% if page.background }
-<meta name="og:image" content="{{ page.background | absolute_url }}">
-<meta name="twitter:image" content="{{ page.background | absolute_url }}">
+<meta property="og:image" content="{{ page.background | absolute_url }}">
+<meta property="twitter:image" content="{{ page.background | absolute_url }}">
 {% endif %}
 {% if page.date }
 <meta property="og:updated_time" content="{{ page.date | date_to_xmlschema }}">

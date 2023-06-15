@@ -7,9 +7,7 @@ background: "/assets/futuristic_board_header-min.jpg"
 tags: windows virtual_machines tips
 ---
 
-## TLDR
-
-You need to disable virtualisation based security on the host using [this command](#command).
+**TLDR: You need to disable virtualisation based security on the host using [this command](#command).**
 
 ---
 

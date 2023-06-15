@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-background: "/assets/full.png"
+background: "/assets/full-min.png"
 ---
 
 Hi there! I'm Ollie. Welcome to my blog.

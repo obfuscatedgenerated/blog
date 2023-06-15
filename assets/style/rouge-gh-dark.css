@@ -130,3 +130,8 @@ pre.lineno {
     user-select: none;
     margin-bottom: 0;
 }
+
+/* additional change, use source code pro */
+pre, code, tt {
+    font-family: "Source Code Pro", SF-Mono, Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+}

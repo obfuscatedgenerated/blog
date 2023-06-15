@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="/assets/style/rouge-gh-dark.css">
 <script src="/assets/script/code-copy.js" defer></script>
 <link rel="stylesheet" href="/assets/style/code-copy.css">
+<meta name="og:image" content="{{ page.background | absolute_url }}">
+<meta property="og:updated_time" content="{{ page.date | date_to_xmlschema }}">
 {% if site.tags != "" %}
   {% include propagate_tags.html %}
 {% endif %}

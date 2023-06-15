@@ -9,7 +9,7 @@ tags: windows virtual_machines tips
 
 ## TLDR
 
-You need to disable virtualisation based security using [this command](#command).
+You need to disable virtualisation based security on the host using [this command](#command).
 
 ---
 
@@ -21,7 +21,7 @@ Recently, I've been playing around with VMware Workstation 17 using Windows XP, 
 
 ## The solution
 
-The solution is to disable VBS, which can be done using the following command:
+The solution is to disable VBS on the host machine, which can be done using the following command:
 
 <a name="command"></a>
 
@@ -46,7 +46,7 @@ bcdedit /set hypervisorlaunchtype auto
 
 ## The catch
 
-This also disables Windows' built-in virtualisation features, which means:
+This also disables Windows' built-in virtualisation features on the host, which means:
 
 - (possibly) Lower security against advanced malware attacks
 - No WSL2

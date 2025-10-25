@@ -8,3 +8,5 @@ Hi there! I'm Ollie. Welcome to my blog.
 
 Read it with RSS:<br />
 [HTML](/rss/feed.xml) | [Plaintext (not recommended)](/rss/feed.text.xml)
+
+[Privacy policy](https://ollieg.codes/privacy)

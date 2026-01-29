@@ -44,7 +44,7 @@ Hardware is complex. To write a file to a hard drive, you need to talk to the di
 
 Resources are limited. Multiple programs may want to use the CPU, memory, or disk at the same time. The OS arbitrates access to these resources, ensuring that each program gets a fair share and preventing conflicts.
 
-### Isolation
+#### Isolation
 
 Programs should not be able to interfere with each other. A buggy program should not be able to crash the entire system or access another program's data. The OS isolates programs from each other, providing memory protection and process isolation.
 

@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/assets/style/toc.css">
+
+{% assign h_min = include.h_min | default: 2 %}
+{% assign h_max = include.h_max | default: 3 %}
+{% assign toc_class = include.class | default: "toc" %}
+
+<details class="{{ toc_class }}">
+  <summary><strong>Table of Contents</strong></summary>
+
+  <ul>
+    {% assign headers = include.html | split: '<h' %}
+    {% assign last_level = h_min %}
+
+    {% for header in headers offset:1 %}
+    {% assign level = header | slice: 0, 1 | plus: 0 %}
+
+    {% if level >= h_min and level <= h_max %}
+    {% assign _workspace = header | split: 'id="' %}
+    {% assign _id = _workspace[1] | split: '"' | first %}
+    {% assign _workspace = header | split: '>' %}
+    {% assign _title = _workspace[1] | split: '</h' | first %}
+
+    {% if level > last_level %}
+    <ul>
+      {% elsif level < last_level %}
+      {% assign diff = last_level | minus: level %}
+      {% for i in (1..diff) %}
+    </ul></li>
+    {% endfor %}
+    {% elsif forloop.first == false %}
+    </li>
+    {% endif %}
+
+    <li>
+      <a href="#{{ _id }}">{{ _title | strip_html }}</a>
+      {% assign last_level = level %}
+      {% endif %}
+      {% endfor %}
+
+      {% assign diff = last_level | minus: h_min %}
+      {% for i in (1..diff) %}
+  </ul></li>
+  {% endfor %}
+  </ul>
+</details>

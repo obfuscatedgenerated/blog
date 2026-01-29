@@ -1,0 +1,40 @@
+/* Container Box */
+details.toc {
+    background-color: #f8f9fa; /* Light grey background */
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+/* The Title / Clickable Area */
+details.toc summary {
+    cursor: pointer;
+    padding: 0.5rem 0;
+    outline: none;
+    font-size: 1.1rem;
+    color: #333;
+    width: 100%;
+}
+
+
+/* List Styling */
+details.toc ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+details.toc li {
+    margin-bottom: 0.25rem;
+}
+
+details.toc a {
+    text-decoration: none;
+    color: #0366d6;
+}
+
+details.toc a:hover {
+    text-decoration: underline;
+}

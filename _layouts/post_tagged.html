@@ -20,7 +20,7 @@ layout: default
                         {% endif %}
                         <span class="meta">Posted by
                             <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
-                            on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time_improved.html
+                            on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
                             content=page.content %}<br><br>Tags: [
                             {% for tag in page.tags %}
                             {% capture tag_name %}{{ tag }}{% endcapture %}

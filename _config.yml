@@ -3,7 +3,7 @@ description: "obfuscatedgenerated's blog"
 author: obfuscatedgenerated
 url: https://blog.ollieg.codes
 
-remote_theme: StartBootstrap/startbootstrap-clean-blog-jekyll
+remote_theme: obfuscatedgenerated/startbootstrap-clean-blog-jekyll
 
 markdown: kramdown
 highlighter: rouge

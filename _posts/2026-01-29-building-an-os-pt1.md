@@ -226,13 +226,12 @@ However, please note that the OllieOS codebase is **proprietary and strictly cop
 
 ### Plaintext (APA Style)
 
-> Ollie G. (2026, January 29). *Operating System Fundamentals with TypeScript (Part 1): The Kernel, Scheduler, and Filesystem*. Retrieved from [https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html](https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html)
+Ollie G. (2026, January 29). *Operating System Fundamentals with TypeScript (Part 1): The Kernel, Scheduler, and Filesystem*. Retrieved from [https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html](https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html)
 
 ### Markdown
 
 ```markdown
 Ollie G. (2026). *Operating System Fundamentals with TypeScript (Part 1): The Kernel, Scheduler, and Filesystem*. Retrieved from https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html
-
 ```
 
 ### HTML
@@ -242,7 +241,6 @@ Ollie G. (2026). *Operating System Fundamentals with TypeScript (Part 1): The Ke
   Ollie G. (2026). <em>Operating System Fundamentals with TypeScript (Part 1): The Kernel, Scheduler, and Filesystem</em>. 
   Retrieved from <a href="https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html">https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html</a>
 </p>
-
 ```
 
 ### BibTeX
@@ -257,3 +255,4 @@ Ollie G. (2026). *Operating System Fundamentals with TypeScript (Part 1): The Ke
   url = {https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html},
   note = {Accessed: 2026-01-29}
 }
+```

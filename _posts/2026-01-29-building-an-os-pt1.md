@@ -2,7 +2,7 @@
 layout: post_tagged
 title: "Operating System Fundamentals with TypeScript (Part 1): The Kernel, Scheduler, and Filesystem"
 subtitle: "The Building Blocks of an OS, Implemented in a High-Level Language"
-date: 2026-01-29 20:00:00
+date: 2026-01-29 22:53:00
 background: "/assets/circuit-board.jpg"
 tags: ollieos operating_systems learning
 ---

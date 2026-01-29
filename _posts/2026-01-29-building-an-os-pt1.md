@@ -55,7 +55,7 @@ It features a fully functional Process Scheduler, a hierarchical File System, an
 This distinction highlights the power of abstraction.
 
 Because the OllieOS kernel interacts with an `AbstractFileSystem` interface rather than raw hardware, the core operating system is completely agnostic to its environment.
-In fact, this abstraction is so effective that I was able to [port OllieOS to run in a Node.js terminal](https://github.com/obfuscatedgenerated/ollieos_node) simply by writing a new `FileSystem` implementation and swapping out xterm.js to directly write to the terminal.
+In fact, this abstraction is so effective that I was able to [port OllieOS to run in a Node.js terminal](https://github.com/obfuscatedgenerated/ollieos_node) simply by writing a new filesystem implementation and swapping out xterm.js to directly write to the terminal.
 
 And don't worry, examples are coming in the following sections! If you're eager to read the code and follow along, check out the [OllieOS GitHub repository](https://github.com/obfuscatedgenerated/obfuscatedgenerated.github.io).
 Otherwise, snippets will be embedded throughout this post.
@@ -192,7 +192,7 @@ Similarly, Node.js has its own filesystem API that allows access to the host mac
 Therefore, OllieOS abstracts away the filesystem implementation behind an `AbstractFileSystem` interface. This is an abstract class with concrete utility methods (e.g. `absolute()` to get absolute paths) and abstract methods such as `write_file()`, `read_file()`, `delete_file()`, `make_dir()`.
 Each filesystem implementation extends this abstract class and is forced to provide concrete implementations for the abstract methods.
 
-For example, here is how checking a file exists looks for the `LocalStorageFileSystem` implementation, where files are stored as a nested JSON structure in `localStorage`:
+For example, here is how checking a file exists looks for the `LocalStorageFS` implementation, where files are stored as a nested JSON structure in `localStorage`:
 
 <iframe frameborder="0" scrolling="no" style="width:100%; height:583px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Ffs_impl%2Flocalstorage.ts%23L415-L438&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 

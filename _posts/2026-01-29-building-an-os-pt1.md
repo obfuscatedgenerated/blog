@@ -51,7 +51,7 @@ Programs should not be able to interfere with each other. A buggy program should
 ### How OllieOS implements these concepts
 
 Of these functions and goals, OllieOS implements the *logical* architecture while delegating the *physical* machinery to the host environment (the browser and JavaScript engine).
-It features a fully functional Process Scheduler, a hierarchical File System, and a User Interface (with xterm.js and virtual windows), but it skips Device Management and low-level Memory mapping.
+It features a fully functional process scheduler, a hierarchical file system, and a user interface (with xterm.js and virtual windows), but it skips device management and low-level memory mapping.
 This distinction highlights the power of abstraction.
 
 Because the OllieOS kernel interacts with an `AbstractFileSystem` interface rather than raw hardware, the core operating system is completely agnostic to its environment.

@@ -218,7 +218,7 @@ The session manager is responsible for launching the shell when a user logs in.
 It's important to remember a shell isn't special, it's just a userspace program that uses the features provided by the terminal driver and line discipline to interact with the user.
 Anybody can make their own shell program and therefore change the behaviour of the command line interface.
 
-In part 3, we'll explore the **components of a simple command-line shell**, as well as looking at how programs are actually loaded and executed by the OS.
+In part 3, we'll explore the **components of a simple command-line shell**, as well as looking at **how programs are actually loaded** and executed by the OS.
 
 (will be linked here when published)
 

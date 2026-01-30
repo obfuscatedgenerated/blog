@@ -230,7 +230,7 @@ However, please note that the OllieOS codebase is **proprietary and strictly cop
 
 ### Plaintext (APA Style)
 
-Ollie G. (2026, January 30). *Operating System Fundamentals with TypeScript (Part 2): The Boot Sequence and Terminal Control*. Retrieved from [https://blog.ollieg.codes/2026/01/30/building-an-os-pt2.html](https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html)
+Ollie G. (2026, January 30). *Operating System Fundamentals with TypeScript (Part 2): The Boot Sequence and Terminal Control*. Retrieved from [https://blog.ollieg.codes/2026/01/30/building-an-os-pt2.html](https://blog.ollieg.codes/2026/01/30/building-an-os-pt2.html)
 
 ### Markdown
 

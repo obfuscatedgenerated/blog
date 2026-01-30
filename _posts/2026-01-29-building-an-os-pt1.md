@@ -84,19 +84,19 @@ These rings are enforced by the CPU hardware. If a program running in ring 3 tri
 
 The OllieOS kernel is split into several key components managed by the `Kernel` class.
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:226px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Findex.ts%23L131-L137&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:226px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Findex.ts%23L131-L137&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 In the snippet above, we see private fields for each kernel component, such as the `FileSystem` implementation under `#fs`, the `ProcessManager` under `#process_manager`, and the terminal controller `WrappedTerminal` under `#term`.
 These components are passed into the kernel constructor, allowing for easy swapping of implementations (as seen in the Node.js port). Getters are provided to allow access to these components.
 
 When a program is spawned, we pass the kernel instance to the program data alongside the context (arguments, process context etc). This allows the program to interact with the kernel to therefore utilise the OS functions:
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:436px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Findex.ts%23L297-L313&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:436px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Findex.ts%23L297-L313&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 Critically, notice the condition on `start_privileged`. By providing the `Kernel` instance as-is, the program would have full access to the kernel components via the getters, and would be able to call any method on them.
 This would be kernelspace access, which we don't want to grant all programs! Therefore, if the program is not started as privileged, we create a "userspace" proxy that only exposes a limited set of methods:
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:1024px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Findex.ts%23L551-L595&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:1024px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Findex.ts%23L551-L595&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 This looks daunting, but essentially all it does is create a new object that only exposes a limited set of methods from the kernel components. Each OS component also has a corresponding "userspace" interface that only exposes safe methods.
 This means that a userspace program can only ever "see" the safe methods, and cannot call any privileged methods. A program can ask the user for elevation to access privileged methods via `kernel.request_privilege()`.
@@ -129,7 +129,7 @@ In the eyes of the OS, the PCB *is* the process. The OS uses the PCB to manage a
 
 In OllieOS, the `ProcessContext` class represents the PCB for a process:
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:514px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Fprocesses.ts%23L312-L331&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:514px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Fprocesses.ts%23L312-L331&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 This is passed as data when a program is spawned (see previous example) which allows the program to access it.
 Additionally, `ProcessContext` exposes methods such as `process.kill()`, `process.detach()`, `process.create_timeout()` etc to allow the program to manage its own process.
@@ -139,7 +139,7 @@ This is **arbitration**. The OS ensures that the resources allocated to a proces
 
 Processes are overseen by the `ProcessManager` class, which keeps track of all running processes and their PCBs:
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:142px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Fprocesses.ts%23L575-L577&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:142px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fkernel%2Fprocesses.ts%23L575-L577&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 ## How are processes scheduled?
 
@@ -194,11 +194,11 @@ Each filesystem implementation extends this abstract class and is forced to prov
 
 For example, here is how checking a file exists looks for the `LocalStorageFS` implementation, where files are stored as a nested JSON structure in `localStorage`:
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:583px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Ffs_impl%2Flocalstorage.ts%23L415-L438&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:583px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Ffs_impl%2Flocalstorage.ts%23L415-L438&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 And in contrast, the Node.js implementation `RealFS` just uses the built-in `fs` module to check if a file exists:
 
-<iframe frameborder="0" scrolling="no" style="width:100%; height:163px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Follieos_node%2Fblob%2F4905b925b62fa092827205d19db5fd17725db738%2Fsrc%2Freal_fs.ts%23L112-L115&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
+<iframe frameborder="0" scrolling="no" style="width:100%; height:163px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Follieos_node%2Fblob%2F4905b925b62fa092827205d19db5fd17725db738%2Fsrc%2Freal_fs.ts%23L112-L115&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
 This demonstrates the power of abstraction. The core OllieOS kernel and programs can use the same filesystem interface, regardless of the underlying implementation. The browser or environment simply chooses the appropriate filesystem implementation when initialising the kernel.
 

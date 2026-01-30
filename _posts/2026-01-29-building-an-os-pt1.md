@@ -213,7 +213,7 @@ By abstracting these components, we have created a system that is logically robu
 
 However, a computer that sits idle isn't very useful. We've built the internal machinery, but we are missing the input/output layer, as well as the essential userspace infrastructure such as init systems and shells. We have a machine that can think, but it has no way to talk to us.
 
-In part 2, we will explore how these are implemented, first focusing on **terminal control** to allow user interaction, and then discussing the **boot sequence** to follow the lifecycle of an OS from boot to running user programs.
+In part 2, we will explore how these are implemented, first discussing the **boot sequence** to follow the lifecycle of an OS from boot to running user programs, and then focusing on **terminal control** to allow user interaction.
 Stay tuned!
 
 (will be linked here when published)

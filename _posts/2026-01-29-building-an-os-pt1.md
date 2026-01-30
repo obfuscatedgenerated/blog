@@ -256,6 +256,6 @@ Ollie G. (2026). *Operating System Fundamentals with TypeScript (Part 1): The Ke
   month = {January},
   day = {29},
   url = {https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html},
-  note = {Accessed: 2026-01-29}
+  note = {Accessed: 2026-01-30}
 }
 ```

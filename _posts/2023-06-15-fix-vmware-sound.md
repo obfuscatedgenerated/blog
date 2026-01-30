@@ -4,7 +4,7 @@ title: "Fixing Windows 2000/XP sound issues in VMware Workstation for Windows 10
 subtitle: "A solution to the sound issues that actually works (as of posting), no magic tools required!"
 date: 2023-06-15 14:38:00
 background: "/assets/futuristic_board_header-min.jpg"
-tags: windows virtual_machines tips
+tags: ["Windows", "Virtual Machines", "Tips"]
 ---
 
 **TLDR: You need to disable virtualisation based security on the host using [this command](#command).**

@@ -4,7 +4,7 @@ title: "Operating System Fundamentals with TypeScript (Part 1): The Kernel, Sche
 subtitle: "The Building Blocks of an OS, Implemented in a High-Level Language"
 date: 2026-01-29 22:53:00
 background: "/assets/circuit-board.jpg"
-tags: ollieos operating_systems learning
+tags: ["Series: Operating System Fundamentals with TypeScript", "OllieOS", "Operating Systems", "Learning"]
 ---
 
 Operating system development is a daunting task. Implementing an operating system requires deep knowledge of hardware architecture, low-level programming, and system design.

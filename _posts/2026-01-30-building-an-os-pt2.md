@@ -129,6 +129,7 @@ And then either party can send messages to the other using `channel_send()`:
 ### OllieOS's init system: ignition
 
 OllieOS includes the default init system `ignition`.
+
 This program reads `/etc/boot_target` to determine what program it should launch as the user session manager.
 By default, this is `jetty`, a simple single session terminal manager that respawns the user's shell over and over again whenever it exits.
 
@@ -138,7 +139,7 @@ Next, it initialises a service manager and loads service configuration files fro
 
 <iframe frameborder="0" scrolling="no" style="width:100%; height:184px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fprograms%2Fcore%2Fignition%2Findex.ts%23L110-L114&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
-Next, it registers an IPC service called "init" to allow management from other processes:
+Next, it registers an IPC service called "init" to allow management from other processes. The program `spark` comes included with OllieOS to provide a command line interface to control the init system via this IPC service.
 
 <iframe frameborder="0" scrolling="no" style="width:100%; height:835px;" allow="clipboard-write" src="https://emgithub.com/iframe.html?target=https%3A%2F%2Fgithub.com%2Fobfuscatedgenerated%2Fobfuscatedgenerated.github.io%2Fblob%2Fff30c91376bccb7cd78387a64b26fe2b9e037db2%2Fsrc%2Fprograms%2Fcore%2Fignition%2Findex.ts%23L117-L152&style=github-dark&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on"></iframe>
 
@@ -156,6 +157,8 @@ This is quite a large sample, but it is essentially the same logic used by the k
 
 It's worth noting that init systems in OllieOS are run in privileged mode. In real life, it is unlikely the init system would run with ring 0 privileges, but would at least run at root user level.
 Due to OllieOS being single user and not having this distinction, it runs with "kernel privileges". Refer back to [Part 1](https://blog.ollieg.codes/2026/01/29/building-an-os-pt1.html#how-ollieos-implements-the-kernel) for more information on how OllieOS specifically handles this simplified privilege model.
+
+Since drivers aren't all that important in a web-based OS, OllieOS doesn't make this distinction. Instead, `ignition` can spawn privileged services that can access kernel features directly. This is why it is given kernel privileges when spawned by the kernel.
 
 ## Terminal drivers and line discipline
 

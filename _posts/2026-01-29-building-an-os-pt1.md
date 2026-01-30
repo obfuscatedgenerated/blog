@@ -7,6 +7,8 @@ background: "/assets/circuit-board.jpg"
 tags: ["Series: Operating System Fundamentals with TypeScript", "OllieOS", "Operating Systems", "Learning"]
 ---
 
+*Updated 30/01/2026 to clarify the difference between elevation and Ring 0.*
+
 Operating system development is a daunting task. Implementing an operating system requires deep knowledge of hardware architecture, low-level programming, and system design.
 You are given nothing. No C runtime, no standard libraries, not even a native print() function. All you have is a BIOS and bare metal.
 
@@ -103,8 +105,9 @@ This means that a userspace program can only ever "see" the safe methods, and ca
 Note that because OllieOS is a single-user OS, the user is essentially the `root` user, so are free to grant or deny privilege requests as they see fit.
 
 This design effectively simulates the ring architecture of a real operating system, while still being implemented in a high-level language.
-It is however important to contrast this with a real OS. In a real OS, system calls are used to access kernel functions. These work by triggering a CPU interrupt that switches the CPU to ring 0, allowing the kernel to execute the requested function on behalf of the program.
-The OllieOS design is a simplification of this, but it effectively demonstrates the concept of privilege levels and kernel/user separation.
+It is however important to contrast this with a real OS. In a real OS, system calls are used to access kernel functions. These work by triggering a CPU interrupt that switches the CPU to ring 0, allowing the kernel to execute the requested function on behalf of the program, which still runs in ring 3.
+The OllieOS design is a simplification of this, where `sudo` elevated programs and ring 0 are essentially the same (because we don't particularly care about hardware privilege when we are just a browser), but it effectively demonstrates the concept of privilege levels and kernel/user separation.
+
 It is additionally worth noting that a program could theoretically "export" this privileged access to other programs by passing the kernel instance around. I am currently exploring mitigations for this, such as [capability-based security provided by SES (Secure ECMAScript) compartments](https://www.npmjs.com/package/ses) which essentially cuts off access to the global scope and provides true isolation between programs.
 
 ## Programs vs processes
